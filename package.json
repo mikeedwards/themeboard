@@ -12,9 +12,13 @@
         "node": "~0.6.10 || 0.8 || 0.9"
     },
     "scripts": {
-        "start": "brunch watch --server"
+        "start": "brunch watch --server",
+        "postinstall": "brunch build --minify"
     },
     "dependencies": {
+        "statik": ">= 1.1.0", 
+        "brunch": ">= 1.0 < 1.5",
+
         "javascript-brunch": "> 1.0 < 1.5",
         "coffee-script-brunch": "> 1.0 < 1.5",
 
@@ -28,9 +32,8 @@
 
         "coffeelint-brunch": "> 1.0 < 1.5",
 
-        "auto-reload-brunch": "> 1.0 < 1.5"
-    },
-    "devDependencies": {
+        "auto-reload-brunch": "> 1.0 < 1.5",
+
         "jquery": ">= 1.7",
         "mocha": "0.14.0",
         "expect.js": "0.1.2",
