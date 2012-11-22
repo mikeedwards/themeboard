@@ -36,6 +36,8 @@
         "auto-reload-brunch": "> 1.0 < 1.5",
 
         "jquery": ">= 1.7",
+        "lodash": ">= 0.9",
+        "backbone": ">= 0.9",
         "mocha": "0.14.0",
         "expect.js": "0.1.2",
         "ws": "0.4.21"

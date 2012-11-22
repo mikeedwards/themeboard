@@ -1,7 +1,7 @@
 PinsCollection = require 'collections/pins'
 PinModel = require 'models/pin'
 
-describe 'Boardcollection', ->
+describe 'PinsCollection', ->
     beforeEach ->
         @collection = new PinsCollection()
 

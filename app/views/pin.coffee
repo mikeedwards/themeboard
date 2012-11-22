@@ -15,6 +15,7 @@ module.exports = class PinView extends View
         "blur h2"           : "onBlurH2"
         "keypress h2"       : "onKeypressH2"
         "click .delete-pin" : "onClickDeletePin"
+        "click .comment"    : "onClickComment"
         "click"             : "onClick"
         #"hover"             : "onClick"
 
@@ -23,11 +24,13 @@ module.exports = class PinView extends View
     ###
 
     initialize: ->
+        @mediator = Backbone.Mediator
+
         @model.bind 'change', (model, response) =>
             @render()
 
         @model.bind 'destroy', (model, response) =>
-            Backbone.Mediator.publish "pin:destroyed", @
+            @mediator.publish "pin:destroyed", @
             #@remove()
 
     afterRender: ->
@@ -43,6 +46,8 @@ module.exports = class PinView extends View
 
     onClickDeletePin: (ev) ->
         @model.destroy()
+
+    onClickComment: (ev) ->
 
     onMousedownH2: (ev) ->
         ev.stopPropagation()
@@ -67,7 +72,7 @@ module.exports = class PinView extends View
     ###
 
     select: ->
-        Backbone.Mediator.publish "pin:selected", @
+        @mediator.publish "pin:selected", @
         @$el.toggleClass "editable", @editable
 
     saveTitle: (title) ->
